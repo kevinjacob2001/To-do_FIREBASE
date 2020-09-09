@@ -7,18 +7,22 @@ const [input,setInput]=useState("")
 
 
 const addTodo=(event)=>{
-  return(
-setTodos([...todos,input])
-  )
+
+    event.preventDefault();
+    setTodos([...todos,input])
+  setInput("")
 }
 
   return (
     <div className="App">
     
           <h1>Hello World!</h1>
+          
+          <form onSubmit={addTodo}>
           <input value={input} onChange={event=>setInput(event.target.value)}/>
           <button onClick={addTodo}>Add todo</button>
-         
+          </form>
+
           <ul>
             {todos.map((todo)=>{
               return(
