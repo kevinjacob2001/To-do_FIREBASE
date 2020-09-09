@@ -4,15 +4,20 @@ import './App.css';
 function App() {
 const [todos,setTodos]=useState(["Take dog for walk","go to beach","Welcome Kevin"])
 const [input,setInput]=useState("")
-console.log(input);
 
+
+const addTodo=(event)=>{
+  return(
+console.log("I am clicked")
+  )
+}
 
   return (
     <div className="App">
     
           <h1>Hello World!</h1>
           <input value={input} onChange={event=>setInput(event.target.value)}/>
-          <button>Add todo</button>
+          <button onClick={addTodo}>Add todo</button>
          
           <ul>
             {todos.map((todo)=>{
