@@ -8,7 +8,7 @@ const [input,setInput]=useState("")
 
 const addTodo=(event)=>{
   return(
-console.log("I am clicked")
+setTodos([...todos,input])
   )
 }
 
