@@ -10,7 +10,7 @@ const addTodo=(event)=>{
 
     event.preventDefault();
     setTodos([...todos,input])
-  setInput("")
+    setInput("")
 }
 
   return (
