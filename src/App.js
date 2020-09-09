@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button, FormControl,InputLabel,Input} from '@material-ui/core'
 import './App.css';
-import Todo from './todo';
+import Todo from './Todo';
 
 function App() {
 const [todos,setTodos]=useState(["Take dog for walk","go to beach","Welcome Kevin"])
