@@ -13,7 +13,7 @@ function Todo(props){
                </ListItemAvatar>
                <ListItemText primary={props.todo.todo} secondary="Dummy deadline"/>
            </ListItem>
-           <Button onClick={()=>db.collection("todo").doc(props.todo.id).delete()} variant="contained" color="secondary">DELETE ME</Button>
+           <Button onClick={event=>db.collection("todos").doc(props.todo.id).delete()} variant="contained" color="secondary">DELETE ME</Button>
         </List>
     <hr/>
     </div>
