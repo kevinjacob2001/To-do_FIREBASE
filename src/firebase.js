@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 
-  firebase=firebase.initializeApp({
+firebase.initializeApp({
 
     apiKey: "AIzaSyBV0BaJaiRTvHDU4B4MorWm0eRsv9tRxMo",
     authDomain: "todo-app-kevinjacob.firebaseapp.com",
