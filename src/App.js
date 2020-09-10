@@ -22,8 +22,8 @@ const addTodo=(event)=>{
 
     event.preventDefault();
     db.collection("todos").add({
-todo:input,
-timestamp:firebase.firestore.FieldValue.serverTimestamp()
+        todo:input,
+        timestamp:firebase.firestore.FieldValue.serverTimestamp()
     })
 
     setInput("") //clear up the input

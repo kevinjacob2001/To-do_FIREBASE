@@ -21,13 +21,14 @@ function Todo(props){
    
 const classes=useStyles();    
 const [open,setOpen]=useState(false)
+const [input,setInput]=useState("")
 
-    const handleClose=()=>{
-    setOpen(false)
-    }
 
     const updateTodo=()=>{
-        
+        db.collection("todos").doc(props.todo.id).set({
+todo:input
+        },{merge:true})
+        setOpen(false);
     }
 
   return(
@@ -38,7 +39,8 @@ const [open,setOpen]=useState(false)
        >
            <div className={classes.paper}>
                <h1>I am a modal</h1>
-               <Button variant="outlined" onClick={handleClose}>Update Todo</Button>
+               <input placeholder={props.todo.todo} value={input} onChange={(e)=>setInput(e.target.value)}/>
+               <Button variant="outlined"  onClick={updateTodo}>Update Todo</Button>
            </div>
        </Modal>
 
