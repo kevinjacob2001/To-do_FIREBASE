@@ -31,7 +31,9 @@ const addTodo=(event)=>{
 
   return (
     <div className="App">
-      <h1>🚀To do list app integrated with Firestore.</h1>
+      <h1>🚀Wassup gorgeous friends!</h1>
+      <h2>🔥React+Firestore(Real time database) App developed by Kevin Jacob</h2>
+      <h2>➡️WITH FULL CRUD FUNCTIONALITY🤩</h2>
           <form onSubmit={addTodo}>
           <FormControl>
             <InputLabel>Write a todo</InputLabel>

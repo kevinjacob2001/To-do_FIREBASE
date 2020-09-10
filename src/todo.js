@@ -38,7 +38,7 @@ todo:input
        onClose={()=>setOpen(false)}
        >
            <div className={classes.paper}>
-               <h1>I am a modal</h1>
+               <h1>Edit the existing to do</h1>
                <input placeholder={props.todo.todo} value={input} onChange={(e)=>setInput(e.target.value)}/>
                <Button variant="outlined"  onClick={updateTodo}>Update Todo</Button>
            </div>
