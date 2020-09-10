@@ -4,6 +4,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { Modal } from '@material-ui/core';
 import './Todo.css'
 import db from './firebase';
+import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -21,25 +22,23 @@ function Todo(props){
 const classes=useStyles();    
 const [open,setOpen]=useState(false)
 
-const handleClose=()=>{
-setOpen(false)
-}
+    const handleClose=()=>{
+    setOpen(false)
+    }
 
-const handleOpen=()=>{
-setOpen(true)
-}  
+    const updateTodo=()=>{
+        
+    }
 
-
-    return(
-       <>
-       
+  return(
+       <>       
        <Modal
        open={open}
        onClose={()=>setOpen(false)}
        >
-           <div>
+           <div className={classes.paper}>
                <h1>I am a modal</h1>
-               <button onClick={handleClose}>Click here to close</button>
+               <Button variant="outlined" onClick={handleClose}>Update Todo</Button>
            </div>
        </Modal>
 
@@ -50,7 +49,7 @@ setOpen(true)
                </ListItemAvatar>
                <ListItemText primary={props.todo.todo} secondary="Dummy deadline"/>
            </ListItem>
-           <button onClick={()=>setOpen(true)}>EDIT</button>
+           <Button variant="outlined" color="secondary" onClick={()=>setOpen(true)}>EDIT</Button>
            <Button onClick={event=>db.collection("todos").doc(props.todo.id).delete()} variant="contained" color="secondary"><DeleteForeverIcon/></Button>
         </List>
     <hr/>
