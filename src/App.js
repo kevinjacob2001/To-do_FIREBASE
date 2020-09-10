@@ -12,7 +12,7 @@ const [input,setInput]=useState("")
 
 useEffect(()=>{
 db.collection("todos").onSnapshot(snapshot=>{
-  console.log(snapshot.docs.map(doc=>doc.data().todo));
+  //console.log(snapshot.docs.map(doc=>doc.data().todo));
   setTodos(snapshot.docs.map(doc=>doc.data().todo))
 })
 },[])
