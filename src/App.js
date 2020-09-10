@@ -6,15 +6,15 @@ import db from './firebase';
 import firebase from 'firebase';
 
 function App() {
-const [todos,setTodos]=useState([ ])
+const [todos,setTodos]=useState([])
 const [input,setInput]=useState("")
 
 //when app loads we need to listen to db and fetch new todos as they get add or removed
 
 useEffect(()=>{
 db.collection("todos").orderBy("timestamp","desc").onSnapshot(snapshot=>{
-  //console.log(snapshot.docs.map(doc=>doc.data().todo));
-  setTodos(snapshot.docs.map(doc=>doc.data().todo))
+  //console.log(snapshot.docs.map(doc=>({id:doc.id,todo:doc.data().todo})))
+  setTodos(snapshot.docs.map(doc=>({id:doc.id,todo:doc.data().todo})))
 })
 },[])
 
@@ -31,7 +31,7 @@ timestamp:firebase.firestore.FieldValue.serverTimestamp()
 
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <h1>🚀To do list app integrated with Firestore.</h1>
           <form onSubmit={addTodo}>
           <FormControl>
             <InputLabel>Write a todo</InputLabel>
@@ -46,7 +46,7 @@ timestamp:firebase.firestore.FieldValue.serverTimestamp()
           <ul>
             {todos.map((todo)=>{
               return(
-               <Todo text={todo}/>
+               <Todo key={todo.id} todo={todo}/>
               )
             })}
           </ul>
