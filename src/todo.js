@@ -1,11 +1,22 @@
 import React from 'react';
 import { ListItemText,ListItem,List,ListItemAvatar,Button } from '@material-ui/core';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { Modal } from '@material-ui/core';
 import './Todo.css'
 import db from './firebase';
 
 function Todo(props){
+
+
+
     return(
-       <div>
+       <>
+       
+       <Modal
+       open={open}
+       onClose={handleClose}
+       ></Modal>
+
        <List className="todo__list"> 
            <ListItem>
                <ListItemAvatar>
@@ -13,10 +24,10 @@ function Todo(props){
                </ListItemAvatar>
                <ListItemText primary={props.todo.todo} secondary="Dummy deadline"/>
            </ListItem>
-           <Button onClick={event=>db.collection("todos").doc(props.todo.id).delete()} variant="contained" color="secondary">DELETE ME</Button>
+           <Button onClick={event=>db.collection("todos").doc(props.todo.id).delete()} variant="contained" color="secondary"><DeleteForeverIcon/></Button>
         </List>
     <hr/>
-    </div>
+    </>
     )
 }
 
